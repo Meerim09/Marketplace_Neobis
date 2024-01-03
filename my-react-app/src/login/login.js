@@ -28,7 +28,10 @@ function Login() {
             class="password-input"
           />
           <span class="toggle-password" onClick={togglePasswordVisibility}>
-            <FontAwesomeIcon icon={passwordVisible ? faEye : faEyeSlash} />
+            <FontAwesomeIcon
+              className="eye-icon"
+              icon={passwordVisible ? faEye : faEyeSlash}
+            />
           </span>
         </div>
         <button class="login-button">Login</button>
