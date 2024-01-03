@@ -1,0 +1,112 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  gap: 170px;
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-recovery-container {
+  width: 335px;
+  height: 296px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.password-recovery-main-text {
+  font-size: 17px;
+  margin: 0;
+  padding: 0;
+}
+
+.password-recovery-info-text {
+  font-size: 14px;
+  color: grey;
+}
+
+.lock-icon {
+  color: rgb(241, 186, 241);
+  background-color: blueviolet;
+  align-items: center;
+  padding: 15px;
+  size: 100px;
+  border-radius: 12px;
+}
+
+.sign-up-text {
+  margin: 0 auto;
+  font-family: "Gotham Pro", bold;
+  font-size: 18px;
+}
+
+.back-button {
+  background-color: lightgray;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.back-text {
+  margin: 10px;
+  font-family: "Gotham Pro";
+  font-size: 16px;
+}
+
+.toggle-recovery-password {
+  top: 0;
+  background-color: lightgray;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+}
+
+.password-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.recovery-input {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  width: 335px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.confirm-input {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  width: 335px;
+}
+
+.forgot-password {
+  color: blueviolet;
+  font-size: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-button {
+  margin-top: 100px;
+  background-color: lightgray;
+  color: white;
+  border: none;
+  border-radius: 22px;
+}
