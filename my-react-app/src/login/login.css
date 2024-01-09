@@ -33,6 +33,7 @@
   border: none;
   border-bottom: 1px solid #e0e0e0;
   width: 335px;
+  outline: none;
 }
 
 .login-button {
@@ -48,7 +49,7 @@
 .sign-up-button {
   margin-top: 200px;
   width: 335px;
-  color: blue;
+  color: #5458ea;
   background-color: transparent;
   border: none;
 }

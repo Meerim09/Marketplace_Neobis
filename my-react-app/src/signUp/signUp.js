@@ -75,12 +75,12 @@ function SignUp() {
   };
 
   return (
-    <div class="main-container">
-      <div class="left-container">
+    <div className="main-container">
+      <div className="left-container">
         <img
           src={process.env.PUBLIC_URL + "/Background.png"}
           alt="background"
-          class="background"
+          className="background"
         />
       </div>
       <div className="right-container">
@@ -110,10 +110,12 @@ function SignUp() {
             <div className="password-recovery-container">
               <div className="password-icon-container">
                 <FontAwesomeIcon icon={faLock} className="lock-icon" />
-                <p className="password-recovery-main-text">Повторите пароль</p>
+                <p className="password-recovery-main-text">
+                  Repeat the password
+                </p>
                 <p className="password-recovery-info-text">
-                  Минимальная длина — 8 символов. <br /> Для надежности пароль
-                  должен содержать буквы и цифры.
+                  Minimum length — 8 symbols. <br /> For security, the password
+                  should contain letters and numbers.
                 </p>
               </div>
               <input

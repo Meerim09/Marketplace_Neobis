@@ -41,7 +41,7 @@
 
 .lock-icon {
   color: rgb(241, 186, 241);
-  background-color: blueviolet;
+  background-color: #5458ea;
   align-items: center;
   padding: 15px;
   size: 100px;
@@ -84,6 +84,7 @@
 
 .recovery-input {
   border: none;
+  outline: none;
   border-bottom: 1px solid #e0e0e0;
   width: 335px;
   margin-top: 10px;
@@ -92,12 +93,13 @@
 
 .confirm-input {
   border: none;
+  outline: none;
   border-bottom: 1px solid #e0e0e0;
   width: 335px;
 }
 
 .forgot-password {
-  color: blueviolet;
+  color: #5458ea;
   font-size: 10px;
   margin-top: 10px;
   text-align: center;
