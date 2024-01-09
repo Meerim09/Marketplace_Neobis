@@ -1,0 +1,189 @@
+.key-container {
+  display: flex;
+  height: 100vh;
+}
+
+.profile-container {
+  flex: 3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 15px;
+}
+
+.user-info {
+  display: flex;
+  top: 0;
+  left: 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  color: white;
+  background-color: #5458ea;
+  border-radius: 50%;
+  margin-right: 10px;
+  padding: 8px;
+}
+
+.user-name-nickname {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-name {
+  font-size: 17px;
+}
+.user-nickname {
+  font-size: 12px;
+}
+
+.personal-data-container {
+  flex: 7;
+  min-height: 100vh;
+  background-color: rgb(250, 246, 250);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-profile-container {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.back-container {
+  margin-right: 35%;
+}
+
+.back-text {
+  font-size: 14px;
+  font-family: "Gotham Pro", bold;
+}
+
+.profile-text {
+  font-size: 18px;
+  font-family: "Gotham Pro", bold;
+}
+
+.personal-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.picture-and-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-user-icon {
+  width: 60px;
+  height: 60px;
+  color: white;
+  background-color: #5458ea;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.select-picture-button {
+  font-size: 12px;
+  color: #5458ea;
+  background-color: transparent;
+  border: none;
+  font-family: Gotham Pro, bold;
+}
+
+.profile-fields-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-fields-section input {
+  border: none;
+  outline: none;
+  border-bottom: 0.5px solid lightgray;
+  width: 400px;
+  height: 25px;
+  font-family: Gotham Pro, bold;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+}
+
+.edit-button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #5458ea;
+  position: absolute;
+  font-family: Gotham Pro, bold;
+}
+
+.phone-number::placeholder {
+  text-align: right;
+}
+
+.save-button {
+  width: 70px;
+  height: 35px;
+  border: none;
+  background-color: lightgray;
+  color: white;
+  border-radius: 30px;
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+.favorite {
+  align-items: center;
+}
+
+.logout {
+  margin-top: 50px;
+}
+
+.profile-nav-icon {
+  color: white;
+  background-color: #5458ea;
+  border-radius: 25%;
+  padding: 3px;
+}
+
+.profile-nav-text {
+  font-size: 15px;
+  font-family: Gotham Pro, bold;
+  margin-left: 10px;
+}
+
+.arrow-icon-button {
+  color: lightgrey;
+  background-color: transparent;
+  border: none;
+  float: right;
+}
+
+.user-menu {
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  gap: 10px;
+}
