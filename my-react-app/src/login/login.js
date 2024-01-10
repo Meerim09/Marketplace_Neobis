@@ -11,23 +11,49 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // handleLogin = async () => {
-  //   const requestBody = {
-  //     username,
-  //     password,
-  //   };
+  const handleUserNameChange = (e) => {
+    setUsername(e.target.value);
+  };
 
-  //   try {
-  //     const responseData = await fetchFromAPI(LOGIN_URL, "POST", requestBody);
-  //     console.log("Login response:", responseData);
-  //navigate("/profile");
-  //   } catch (error) {
-  //     console.error("Login error:", error);
-  //   }
-  // };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
   const togglePasswordVisibility = () => {
     setPasswordVisible((prev) => !prev);
+  };
+
+  const handleLogin = async () => {
+    try {
+      const requestBody = {
+        username,
+        password,
+      };
+
+      const responseData = await fetchFromAPI(LOGIN_URL, "POST", requestBody);
+      console.log("Login response:", responseData);
+      return responseData;
+    } catch (error) {
+      console.error("Login error:", error);
+      throw error;
+    }
+  };
+
+  const handleLoginClick = async () => {
+    const userName = username;
+    const userPassword = password;
+
+    try {
+      const responseData = await handleLogin(userName, userPassword);
+
+      if (responseData && responseData.success) {
+        navigate("/profile");
+      } else {
+        alert("Invalid user name or password. Please try again.");
+      }
+    } catch (error) {
+      alert("An error occurred during login. Please try again later.");
+    }
   };
 
   const handleSignUpClick = () => {
@@ -45,12 +71,20 @@ function Login() {
       </div>
       <div className="right-container">
         <div className="centered-container">
-          <input type="text" placeholder="Email" className="email-input" />
+          <input
+            type="text"
+            placeholder="User Name"
+            className="username-input"
+            value={username}
+            onChange={handleUserNameChange}
+          />
           <div className="password-login-container">
             <input
               type={passwordVisible ? "text" : "password"}
               placeholder="Password"
               className="password-input"
+              value={password}
+              onChange={handlePasswordChange}
             />
             <span
               className="toggle-password"
@@ -62,7 +96,9 @@ function Login() {
               />
             </span>
           </div>
-          <button className="login-button">Login</button>
+          <button className="login-button" onClick={handleLoginClick}>
+            Login
+          </button>
         </div>
         <button className="sign-up-button" onClick={handleSignUpClick}>
           Sign up

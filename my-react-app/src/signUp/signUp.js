@@ -174,7 +174,7 @@ function SignUp() {
               </button>
             </div>
           ) : (
-            <div className="login-container">
+            <div className="password-container">
               <input
                 type="text"
                 placeholder="User Name"

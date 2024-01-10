@@ -32,12 +32,12 @@
   justify-content: center;
 }
 
-.email-input {
+.username-input {
   margin-bottom: 40px;
 }
 
 .password-input,
-.email-input {
+.username-input {
   border: none;
   border-bottom: 1px solid #e0e0e0;
   width: 335px;
