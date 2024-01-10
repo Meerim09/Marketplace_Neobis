@@ -7,52 +7,45 @@ import {
   faArrowLeft,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { SIGNUP_URL } from "../utils/api";
 
 function SignUp() {
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
-  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [isPasswordRecovery, setIsPasswordRecovery] = useState(false);
+  const [isNextButtonClicked, setIsNextButtonClicked] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setPasswordVisible((prev) => !prev);
+    setPasswordVisible(!passwordVisible);
   };
 
   const handleBackClick = () => {
-    console.log("Back button clicked");
+    navigate("/login");
   };
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
+  const handleUserNameChange = (event) => {
+    setUserName(event.target.value);
+  };
+
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  const handlePasswordRecovery = () => {
-    // Implement logic to set a new password
-    // ...
-
-    // Once password is set, reset the state to normal login
-    setIsPasswordRecovery(false);
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
   };
 
-  const handleRegisterButton = () => {
-    if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/.test(email)) {
-      alert("Wrong email address format");
-      return;
-    }
-
-    if (!/^[A-Za-z]+$/.test(login)) {
-      alert("Login must contain only latin letters");
-      return;
-    }
-
+  const handleSignUpButton = async () => {
     if (password.length < 8 || password.length > 15) {
-      alert("Length of password must be between 8 and 15 characters");
+      alert("Length of the password must be between 8 and 15 characters");
       return;
     }
 
@@ -63,7 +56,7 @@ function SignUp() {
       !/[\W_]/.test(password)
     ) {
       alert(
-        "Password must contain at least one lowercase letter, one uppercase letter, one digit and one special character",
+        "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character",
       );
       return;
     }
@@ -72,6 +65,52 @@ function SignUp() {
       alert("Passwords do not match");
       return;
     }
+
+    const user = {
+      userName: userName,
+      email: email,
+      password: password,
+      password_check: confirmPassword,
+    };
+
+    console.log("SIGNUP_URL:", SIGNUP_URL);
+    console.log("method:", "POST");
+    console.log("user:", user);
+
+    try {
+      const response = await fetch(SIGNUP_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        alert("User registered successfully");
+        navigate("/login");
+      } else {
+        alert("User registration failed");
+      }
+    } catch (error) {
+      // Handle network or other errors
+      console.error("Error during registration:", error);
+      alert("Error during registration");
+    }
+  };
+
+  const handleNextButton = () => {
+    if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/.test(email)) {
+      alert("Wrong email address format");
+      return;
+    }
+
+    if (!/^[A-Za-z]+$/.test(userName)) {
+      alert("User name must contain only latin letters");
+      return;
+    }
+
+    setIsNextButtonClicked(true);
   };
 
   return (
@@ -86,7 +125,7 @@ function SignUp() {
       <div className="right-container">
         <div className="sign-up-container">
           <div className="back">
-            <button className="back-button" onClick={() => handleBackClick()}>
+            <button className="back-button" onClick={handleBackClick}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <span className="back-text">Back</span>
@@ -95,9 +134,9 @@ function SignUp() {
             <span className="sign-up-text">Sign up</span>
           </div>
           <div>
-            {isPasswordRecovery && (
+            {isNextButtonClicked && (
               <button
-                className="toggle-recovery-password"
+                className="toggle-password-input"
                 onClick={togglePasswordVisibility}
               >
                 <FontAwesomeIcon icon={passwordVisible ? faEye : faEyeSlash} />
@@ -105,69 +144,52 @@ function SignUp() {
             )}
           </div>
         </div>
-        <div className="centered-container">
-          {isPasswordRecovery ? (
-            <div className="password-recovery-container">
+        <div>
+          {isNextButtonClicked ? (
+            <div className="password-container">
               <div className="password-icon-container">
                 <FontAwesomeIcon icon={faLock} className="lock-icon" />
-                <p className="password-recovery-main-text">
-                  Repeat the password
-                </p>
-                <p className="password-recovery-info-text">
+                <p className="password-main-text">Repeat the password</p>
+                <p className="password-info-text">
                   Minimum length — 8 symbols. <br /> For security, the password
                   should contain letters and numbers.
                 </p>
               </div>
               <input
-                type="password"
-                placeholder="New Password"
-                className="recovery-input"
+                type={passwordVisible ? "text" : "password"}
+                placeholder="Password"
+                className="password-input"
+                value={password}
+                onChange={handlePasswordChange}
               />
               <input
-                type="password"
+                type={passwordVisible ? "text" : "password"}
                 placeholder="Confirm Password"
-                className="confirm-input"
+                className="confirm-password-input"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
               />
-              <button className="login-button" onClick={handlePasswordRecovery}>
-                Set New Password
+              <button className="login-button" onClick={handleSignUpButton}>
+                Sign Up
               </button>
             </div>
           ) : (
-            <div>
+            <div className="login-container">
+              <input
+                type="text"
+                placeholder="User Name"
+                className="user-name-input"
+                value={userName}
+                onChange={handleUserNameChange}
+              />
               <input
                 type="text"
                 placeholder="Email"
-                className="email-input"
+                className="email"
                 value={email}
                 onChange={handleEmailChange}
               />
-              <div className="password-container">
-                <input
-                  type={passwordVisible ? "text" : "password"}
-                  placeholder="Password"
-                  className="password-input"
-                  value={password}
-                  onChange={handlePasswordChange}
-                />
-                <span
-                  className="toggle-password"
-                  onClick={togglePasswordVisibility}
-                >
-                  <FontAwesomeIcon
-                    className="eye-icon"
-                    icon={passwordVisible ? faEye : faEyeSlash}
-                  />
-                </span>
-                {!isPasswordRecovery && (
-                  <span
-                    className="forgot-password"
-                    onClick={() => setIsPasswordRecovery(true)}
-                  >
-                    Did you forget your password?
-                  </span>
-                )}
-              </div>
-              <button className="login-button" onClick={handleRegisterButton}>
+              <button className="login-button" onClick={handleNextButton}>
                 Next
               </button>
             </div>

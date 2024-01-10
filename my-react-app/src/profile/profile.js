@@ -126,7 +126,7 @@ function Profile() {
                 id="phoneNumber"
                 name="phoneNumber"
                 defaultValue=""
-                placeholder="0(000) 000 000 000"
+                placeholder="+0(000) 000 000 000"
                 readOnly
               />
             </div>
