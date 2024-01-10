@@ -24,12 +24,20 @@
   justify-content: center;
 }
 
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .email-input {
   margin-bottom: 40px;
 }
 
-.email-input,
-.password-input {
+.password-input,
+.email-input {
   border: none;
   border-bottom: 1px solid #e0e0e0;
   width: 335px;
@@ -47,14 +55,14 @@
 }
 
 .sign-up-button {
-  margin-top: 200px;
+  margin-top: 30px;
   width: 335px;
   color: #5458ea;
   background-color: transparent;
   border: none;
 }
 
-.password-container {
+.password-login-container {
   position: relative;
 }
 
