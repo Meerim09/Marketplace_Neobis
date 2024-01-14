@@ -1,0 +1,35 @@
+.product-grid-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+}
+
+.product-card {
+  height: 160px;
+  display: grid;
+  place-items: center;
+  background-color: white;
+  border-radius: 10%;
+  padding: 5px;
+}
+
+.product-image {
+  border-radius: 15px;
+  margin-top: 5px;
+}
+
+.product-card-name {
+  font-size: 15px;
+  font-family: Gotham Pro, bold;
+}
+
+.product-card-price {
+  font-size: 15px;
+  font-family: Gotham Pro, bold;
+  color: blue;
+}
+
+.product-card-like-button {
+  border: none;
+  background: transparent;
+}

@@ -67,7 +67,7 @@ function SignUp() {
     }
 
     const user = {
-      userName: userName,
+      username: userName,
       email: email,
       password: password,
       password_check: confirmPassword,
