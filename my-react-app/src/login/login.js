@@ -31,7 +31,6 @@ function Login() {
       };
 
       const responseData = await fetchFromAPI(LOGIN_URL, "POST", requestBody);
-      console.log("Login response:", responseData);
       return responseData;
     } catch (error) {
       console.error("Login error:", error);
@@ -46,11 +45,9 @@ function Login() {
     try {
       const responseData = await handleLogin(userName, userPassword);
 
-      if (responseData && responseData.success) {
-        navigate("/profile");
-      } else {
-        alert("Invalid user name or password. Please try again.");
-      }
+      alert("Successful Auth!");
+      navigate("/profile");
+      return responseData;
     } catch (error) {
       alert("An error occurred during login. Please try again later.");
     }
