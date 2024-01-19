@@ -1,10 +1,13 @@
-import React from "react";
+import { React, useState } from "react";
 import ProductCards from "./productCards";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import "./main.css";
+import AddMyGoodsModal from "./addMyGoodsModal";
 
 const MainPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const products = [
     {
       name: "BMW M4 Coupe: A Two-Door",
@@ -85,6 +88,14 @@ const MainPage = () => {
       .map((product, index) => <ProductCards key={index} product={product} />);
   };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="main-page-container">
       <div className="main-page-header">
@@ -98,7 +109,10 @@ const MainPage = () => {
         </div>
         <div className="main-page-right">
           <div className="main-page-button">
-            <button className="add-product-button">Add Product</button>
+            <button className="add-product-button" onClick={openModal}>
+              Add Product
+            </button>
+            <AddMyGoodsModal isOpen={isModalOpen} onClose={closeModal} />
           </div>
           <div className="main-page-user">
             <div className="user-name-nickname">

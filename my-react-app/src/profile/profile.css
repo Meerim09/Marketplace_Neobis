@@ -30,17 +30,20 @@
   padding: 8px;
 }
 
-.user-name-nickname {
+.user-icon-condition {
+  padding: 0;
+}
+
+.user-username {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
-.user-name {
-  font-size: 17px;
+.user {
+  font-size: 15px;
 }
-.user-nickname {
+.username {
   font-size: 12px;
 }
 

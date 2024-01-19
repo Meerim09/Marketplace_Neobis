@@ -5,10 +5,12 @@ export const USER_URL = `${BASE_URL}users/`;
 export const USER_ENDPOINTS = {
   LOGIN: "login/",
   SIGNUP: "register/",
+  PROFILE_DATA: "profile/",
 };
 
 export const LOGIN_URL = `${USER_URL}${USER_ENDPOINTS.LOGIN}`;
 export const SIGNUP_URL = `${USER_URL}${USER_ENDPOINTS.SIGNUP}`;
+export const PROFILE_DATA_URL = `${USER_URL}${USER_ENDPOINTS.PROFILE_DATA}`;
 
 export const fetchFromAPI = async (url, method = "GET", body = null) => {
   const options = {
